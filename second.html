@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Chair Warmth Logger MAX™</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <header>
+      <div class="brand">
+        <div>
+          <h1>Chair Warmth Logger MAX™</h1>
+          <p class="tagline">You may be unproductive, but at least your chair is warm.</p>
+        </div>
+      </div>
+
+      <div class="controls">
+        <label class="switch">
+          <input id="themeToggle" type="checkbox">
+          <span class="slider"></span>
+        </label>
+        <select id="modeSelect" title="Choose Chair Mode">
+          <option value="default">Normal</option>
+          <option value="toxic">Toxic Motivator</option>
+        </select>
+        <button id="resetBtn" class="ghost">Reset</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="left">
+        <div class="card meter-card">
+          <h2>Warmth Meter</h2>
+          <div class="meter">
+            <div id="warmFill" class="warm-fill" style="width:20%"></div>
+            <div class="meter-labels">
+              <span>Cold</span><span>Neutral</span><span>Hot</span>
+            </div>
+          </div>
+          <div class="mood-row">
+            <div class="emoji" id="moodEmoji">🧊</div>
+            <div class="mood-text" id="moodText">Warming up</div>
+          </div>
+          <div class="buttons">
+            <button id="sitBtn">Simulate Sit</button>
+            <button id="leaveBtn" class="danger">Simulate Leave</button>
+            <button id="snapshotBtn" class="ghost">Take Snapshot (opt-in)</button>
+          </div>
+        </div>
+
+        <div class="card stats-card">
+          <div class="stat">
+            <div class="label">Sitting Time</div>
+            <div id="sittingTime" class="value">0m 0s</div>
+          </div>
+          <div class="stat">
+            <div class="label">Productivity</div>
+            <div id="prodVal" class="value">0%</div>
+          </div>
+          <div class="stat">
+            <div class="label">Posture</div>
+            <div id="posture" class="value">Perfect ✅</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="right">
+        <div class="card log-card">
+          <div class="log-head">
+            <h3>Passive-Aggressive Comments</h3>
+            <small id="lastCommentTime">—</small>
+          </div>
+          <div id="commentBox" class="comment-box">“Chair feels empty and slightly judged.”</div>
+          <div class="log-feed" id="logFeed"></div>
+        </div>
+
+        <div class="card theme-card">
+          <h3>Theme & Mode</h3>
+          <div class="theme-explain">Toggle neon theme and pick the chair personality.</div>
+          <div class="toggles">
+            <label><input id="soundToggle" type="checkbox" checked> Sound Alerts</label>
+            <label><input id="webcamToggle" type="checkbox"> Enable Webcam Snapshots</label>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Dramatic overlay -->
+    <div id="overlay" class="overlay hidden">
+      <div class="overlay-card">
+        <h2>💀 THE CHAIR IS DONE</h2>
+        <p>You've been sitting for too long. GET UP.</p>
+        <div class="overlay-actions">
+          <button id="dismissOverlay">I WILL STAND</button>
+          <button id="snoozeOverlay" class="ghost">Snooze 5 min</button>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <small>ThermoSeat — built for laughs.</small>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
